@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Saver's Employee Hub</title>
+<meta name="description" content="Saver's Cost Plus employee hub — payroll, scheduling, benefits, and more in one place.">
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#FFC400">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Savers Hub">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Flex:opsz,wght@8..144,400;8..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-symbols@0.19.0/outlined.css">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Top app bar (Material 3: Center-aligned small top app bar) -->
+  <header class="top-app-bar" id="topAppBar">
+    <div class="top-app-bar__row">
+      <div class="brand">
+        <img src="icons/icon-192.png" alt="" class="brand__logo">
+        <div class="brand__text">
+          <span class="brand__title">Saver's</span>
+          <span class="brand__subtitle">Employee Hub</span>
+        </div>
+      </div>
+      <button class="icon-button" id="profileBtn" aria-label="Account">
+        <span class="material-symbols-outlined">account_circle</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <!-- Greeting -->
+    <section class="greeting">
+      <h1 class="greeting__title" id="greetingTitle">Welcome back</h1>
+      <p class="greeting__subtitle">Everything you need, in one place.</p>
+    </section>
+
+    <!-- Search field (Material 3 search bar style) -->
+    <section class="search-section">
+      <label class="search-bar" for="toolSearch">
+        <span class="material-symbols-outlined search-bar__icon" aria-hidden="true">search</span>
+        <input id="toolSearch" class="search-bar__input" type="text" placeholder="Search your tools" autocomplete="off">
+      </label>
+    </section>
+
+    <!-- Quick stats / status strip -->
+    <section class="status-strip" aria-label="Quick links">
+      <button class="status-chip" data-scroll="grid">
+        <span class="material-symbols-outlined">apps</span>
+        <span>All tools</span>
+      </button>
+      <button class="status-chip" id="helpChip">
+        <span class="material-symbols-outlined">support_agent</span>
+        <span>Need help?</span>
+      </button>
+    </section>
+
+    <!-- Tool grid -->
+    <section class="tools" id="grid" aria-label="Employee applications">
+      <!-- Cards injected by script.js -->
+    </section>
+
+    <footer class="footer">
+      <p>Saver's Cost Plus &middot; Employee Hub</p>
+      <p class="footer__muted">Trouble signing in to a tool? Contact your manager or HR.</p>
+    </footer>
+
+  </main>
+
+  <!-- Install prompt banner (Material 3 banner) -->
+  <div class="install-banner" id="installBanner" hidden>
+    <span class="material-symbols-outlined install-banner__icon" aria-hidden="true">install_mobile</span>
+    <div class="install-banner__text">
+      <p class="install-banner__title">Add Savers Hub to your home screen</p>
+      <p class="install-banner__subtitle" id="installSubtitle">Get one-tap access, just like a real app.</p>
+    </div>
+    <button class="text-button" id="installBtn">Install</button>
+    <button class="icon-button icon-button--small" id="dismissInstall" aria-label="Dismiss">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+
+</div>
+
+<!-- Link-confirmation modal (Material 3 dialog) -->
+<div class="modal-scrim" id="modalScrim" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__icon" id="modalIcon"></div>
+    <h2 class="modal__title" id="modalTitle">Opening tool</h2>
+    <p class="modal__body" id="modalBody">You're being redirected to an external site.</p>
+    <div class="modal__actions">
+      <button class="text-button" id="modalCancel">Cancel</button>
+      <button class="filled-button" id="modalContinue">Continue</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
